@@ -1,0 +1,10 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/ruby:3.1",
+    "postCreateCommand": "bundle install",
+    "forwardPorts": [4000],
+    "customizations": {
+      "vscode": {
+        "extensions": ["bradlc.vscode-tailwindcss"]
+      }
+    }
+  }
