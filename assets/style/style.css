@@ -1,0 +1,259 @@
+:root {
+    --bs-blue: #0d6efd;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #d63384;
+    --bs-red: #dc3545;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #198754;
+    --bs-teal: #20c997;
+    --bs-cyan: #0dcaf0;
+    --bs-white: #fff;
+    --bs-gray: #72A1A6;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #0d6efd;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: rgb(114, 161, 166);
+    --bs-dark: #212529;
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-color: #212529;
+    /* --bs-body-bg: #F1F8FA; */
+    --bs-body-bg: #f8f8f8;
+    --bs-light-rgb: 114, 161, 166;
+    --bs-dark-rgb: 33, 37, 41;
+  }
+
+
+/* @font-face { */
+    /* font-family: 'TASA Explorer';
+    src: url('/assets/fonts/TASAExplorer-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  } */
+  
+  /* Repeat for other font weights or styles if needed */
+/* @font-face {
+    font-family: 'TASA Explorer';
+    src: url('/assets/fonts/TASAExplorer-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  } */
+  
+/* Use the font in your styles */
+
+body {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+nav {
+  border-bottom: var(--bs-dark) solid 1px;
+}
+
+
+
+.navbar .nav-link {
+  margin: 0.1rem 0.5rem;  /* Space between items */
+  padding: 0.5rem 1rem;  /* Internal padding for the highlight effect */
+}
+
+.b-highlight {
+  background-color: #fff700;
+  border: 3px solid #000000;
+  box-shadow: 5px 5px 0px #000000;
+  padding: 2px 8px;
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.b-highlight:hover {
+  transform: rotate(2deg);
+  box-shadow: 
+      2px 2px 0px var(--bs-info),
+      2px 2px 0px 4px #000000;
+  transition: all 0.2s ease;
+}
+
+/* .highlight {
+  background-color: #ffeb34;  
+  margin: 3px;
+  padding: 10px;
+  color: black;
+} */
+
+h1, h2 {
+    background: linear-gradient(0deg, var(--bs-info) 30%, transparent 30%);
+    padding: 0 4px;
+    display: table;
+}
+
+table tr th{
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+table tr td{
+  padding-left: 0.5rem;
+}
+
+table tr {
+  border-bottom: 1px solid #212529;
+}
+
+table td:first-child,
+table th:first-child {
+  border-right: 1px solid #212529;
+}
+
+.legend-table {
+  display: inline-block;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0 var(--bs-info), 4px 4px 0 3px #000000;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+
+.legend-table td {
+  padding: 0 1rem;  /* Space between columns */
+}
+
+.legend-table td:first-child {
+  border: none;
+}
+
+/* div pre.highlight {
+  background-color: #DDDDDD;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+} */
+
+
+
+pre {
+  background: #ffffff;  /* White background for contrast */
+  border: 3px solid #000000;  /* Thick black border */
+  box-shadow: 
+      8px 8px 0 var(--bs-info),     /* Colorful shadow layer */
+      8px 8px 0 3px #000000; /* Black shadow outline */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+/* Style the code inside the pre block */
+pre code {
+  display: block;
+  /* font-family: 'Courier New', Courier, monospace; */
+  line-height: 1.5;
+}
+
+.error-fix-callout {
+  width: 80%;
+  margin: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.error-fix-callout > img {
+  max-width: 30%;
+}
+
+.error-fix-callout .error-column {
+  background-color: #f8d7da;
+  border-right: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.error-fix-callout .fix-column {
+  background-color: #d1e7dd;
+  padding: 1rem;
+}
+
+.error-fix-callout .column-header {
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 767.98px) {
+  .error-fix-callout .error-column {
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+}
+
+.markdown-toc {
+  padding: 20px;
+  margin-top: 20px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* Style the generated TOC */
+.markdown-toc ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.markdown-toc ul ul {
+  padding-left: 1.2rem;
+}
+
+.markdown-toc li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.markdown-toc a {
+  color: #495057;
+  text-decoration: none;
+  display: block;
+  padding: 0.2rem 0;
+}
+
+.markdown-toc a:hover {
+  color: #0d6efd;
+}
+
+/* Make TOC sticky but with some top spacing */
+.sticky-top {
+  top: 2rem;
+}
+
+/* Optional: Add a max-height and scrolling for long TOCs */
+@media (min-height: 600px) {
+  .markdown-toc {
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+  }
+}
+
+/* Hide markdown on mobile */
+@media (max-width: 900px) {
+  .d-md-block {
+      display: none !important;
+  }
+  .navbar-nav {
+    display: grid !important;  /* Override Bootstrap's default flex */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+  /* If you need to adjust alignment */
+  .nav-item {
+      text-align: center;
+  }
+}

@@ -1,0 +1,14 @@
+title: CIS ESAP 2025
+description: CIS ESAP 2025
+url: "https://esap-cis.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+plugins:
+  - jekyll-feed
+
+google_fonts:
+  - "Atkinson Hyperlegible:400,700"
