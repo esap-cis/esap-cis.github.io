@@ -1,0 +1,227 @@
+/* @theme esap_slides */
+/* Author: rnd195 https://github.com/rnd195/ */
+/* MIT license https://github.com/rnd195/my-marp-themes/blob/live/LICENSE */
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+ :root {
+   --primary-color: #000000;
+   --background-color: #ffffff;
+   --accent-color: #0066ff;
+   --shadow-color: #00aaff;
+   --border-width: 4px;
+   --shadow-offset: 8px;
+ }
+ 
+ section {
+   font-family: 'Atkinson Hyperlegible', sans-serif;
+   background-color: var(--background-color);
+   color: var(--primary-color);
+   font-size: 32px;
+   line-height: 1.4;
+   padding: 30px;
+   padding-left: 40px;
+   padding-right: 40px;
+ }
+
+
+
+section.lead h1{
+  /* font-variant-caps: small-caps; */
+  /* position: absolute; */
+  /* top: 250px; */
+  /* max-width: 950px; */
+  font-family: var(--title);
+  font-weight: 900;
+  font-style: italic;
+  font-size: 80pt;
+  /* color: #FFFFFF; */
+}
+
+section.lead header {
+  visibility: hidden;
+}
+ 
+ /* Slide titles with neo-brutalist styling */
+ section h1,
+ section h2,
+ section h3,
+ section h4,
+ section h5,
+ section h6 {
+   font-family: 'Atkinson Hyperlegible', sans-serif;
+   font-weight: 700;
+   background-color: var(--background-color);
+   border: var(--border-width) solid var(--primary-color);
+   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+   padding: 20px 30px;
+   margin: 30px 0;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+ 
+ section h1 {
+   font-size: 48px;
+   margin-bottom: 40px;
+ }
+ 
+ section h2 {
+   font-size: 40px;
+ }
+ 
+ section h3 {
+   font-size: 36px;
+ }
+ 
+ section h4 {
+   font-size: 32px;
+ }
+ 
+ /* Code blocks with matching brutalist style */
+ section pre,
+ section code {
+   font-family: 'Fira Code', 'Courier New', monospace;
+   background-color: var(--background-color);
+   border: var(--border-width) solid var(--primary-color);
+   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+ }
+ 
+ section pre {
+   padding: 25px;
+   margin: 30px 0;
+   font-size: 22px;
+   line-height: 1.3;
+   overflow-x: auto;
+ }
+ 
+ section code {
+   padding: 4px 8px;
+   font-size: 24px;
+ }
+ 
+ /* Inline code within paragraphs */
+ section p code {
+   box-shadow: 4px 4px 0 var(--shadow-color);
+ }
+ 
+ /* Lists with brutalist styling */
+ section ul,
+ section ol {
+   margin: 25px 0;
+   padding-left: 40px;
+ }
+ 
+ section li {
+   margin: 15px 0;
+   line-height: 1.3;
+   /* font-size: 26px; */
+ }
+ 
+ /* Blockquotes */
+ section blockquote {
+   border-left: var(--border-width) solid var(--primary-color);
+   padding-left: 30px;
+   margin: 30px 0;
+   font-style: italic;
+   background-color: #f8f8f8;
+   padding: 25px 30px;
+   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+ }
+ 
+ /* Tables */
+ section table {
+   border-collapse: separate;
+   border-spacing: 0;
+   margin: 30px 0;
+   width: 100%;
+ }
+ 
+ section th,
+ section td {
+   border: 2px solid var(--primary-color);
+   padding: 15px;
+   text-align: left;
+ }
+ 
+ section th {
+   background-color: var(--primary-color);
+   color: var(--background-color);
+   font-weight: 700;
+   text-transform: uppercase;
+ }
+ 
+ /* Links */
+ section a {
+   color: var(--accent-color);
+   text-decoration: none;
+   border-bottom: 2px solid var(--accent-color);
+   font-weight: 700;
+ }
+ 
+ section a:hover {
+   background-color: var(--accent-color);
+   color: var(--background-color);
+   box-shadow: 4px 4px 0 var(--shadow-color);
+ }
+ 
+ /* Images */
+ section img {
+   border: var(--border-width) solid var(--primary-color);
+   box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--shadow-color);
+   max-width: 100%;
+   height: auto;
+ }
+ 
+ /* Horizontal rules */
+ section hr {
+   border: none;
+   height: var(--border-width);
+   background-color: var(--primary-color);
+   margin: 40px 0;
+   box-shadow: 0 var(--shadow-offset) 0 var(--shadow-color);
+ }
+ 
+ /* Strong emphasis */
+ section strong {
+   font-weight: 700;
+   background-color: var(--accent-color);
+   color: var(--background-color);
+   padding: 2px 6px;
+   box-shadow: 2px 2px 0 var(--shadow-color);
+ }
+ 
+ /* Italic emphasis */
+ section em {
+   font-style: italic;
+   background-color: #ffff00;
+   padding: 2px 4px;
+   box-shadow: 2px 2px 0 var(--shadow-color);
+ }
+ 
+ /* Footer */
+footer {
+   position: absolute;
+   bottom: 30px;
+   right: 30px;
+   font-size: 20px;
+   background-color: var(--primary-color);
+   color: var(--background-color);
+   padding: 10px 15px;
+   border: 2px solid var(--primary-color);
+   box-shadow: 4px 4px 0 var(--shadow-color);
+ }
+ 
+ /* Page numbers */
+ section::after {
+   position: absolute;
+   bottom: 30px;
+   left: 30px;
+   font-size: 20px;
+   background-color: var(--primary-color);
+   color: var(--background-color);
+   padding: 10px 15px;
+   border: 2px solid var(--primary-color);
+   box-shadow: 4px 4px 0 var(--shadow-color);
+   content: attr(data-marpit-pagination) "/" attr(data-marpit-pagination-total);
+ }

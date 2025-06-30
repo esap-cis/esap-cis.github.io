@@ -1,8 +1,3 @@
----
-layout: default
-title: Home
----
-
 # ESAP 2025 – Computer Science
 
 **Engineering Summer Academy at Penn**
