@@ -9,41 +9,54 @@ theme: esap_slides
 --------------------------
 
 <!-- _class: lead -->
-
 # Introduction to Probability
 
 ---
 
-## What is Probability?
-Probability gives us a way to measure <strong>uncertainty</strong>.
-<div style="display: flex; align-items: center; gap: 150px;">
-  <div>
-    <span> It helps answer questions like:
-    </span>
-    <ul>
-      <li>What's the chance it rains today?</li>
-      <li>What are the odds that Portugal wins the World Cup?</li>
-      <li>What is the chance I roll a 4 with a dice?</li>
-    </ul>
-  </div>
-  <div>
-    <img src="./prob/dice.jpg" width="400">
-  </div>
-</div>
+# Agenda
+1. What is Probability?
+2. Experiments & Sample Spaces
+3. Events & Counting
+4. Probability Rules: AND, OR, Conditional
+5. Expected Value
+6. Bernoulli & Independence
+7. Normal Distributions
+8. Simulation & Monte Carlo
+
 
 ---
 
-## Lecture Activity: How do we calculate it?
+<style>
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+</style>
 
-You and your buddies are playing a game where the one that rolls a value less than 3 wins an ice cream from Jenni's. Your freinds 6 sided dice that seems suspicious. You want to try to find the probability of rolling a 2 so you steal the dice once you're all done playing.
+## What is Probability?
 
-How would you go about this?
+Probability gives us a way to measure <strong>uncertainty</strong>.
+
+It helps answer questions like:
+- What's the chance it rains today?
+- What are the odds that Portugal wins the World Cup?
+- What is the chance I roll a 4 with a dice?
+
+![bg right auto](./prob/dice.jpg)
+
+---
+
+## Quick Activty: How do we calculate it?
+
+You and your buddies are playing a game where rolling a value less than 3 wins an ice cream cone. However, your friends 6 sided dice seems suspicious. You want to try to find the probability of rolling a 2 so you steal the dice once you're all done playing.
+
+How would you go about this? That is, how would you try to find the probability of rolling a 2?
 
 **Talk to your neighbor and come up with a plan. We'll talk together after!**
 
 ---
 
-## You Already Do This!
+## A Natural Intuition
 
 Believe it or not, you already have a **natural intuition** for probability — especially when you *try something out* and notice patterns.
 
@@ -56,10 +69,21 @@ That’s your brain **estimating probability** through experience:
 ```python
 approx_prob = num_successes / num_trials
 ```
-<br>
 
 ---
-## What is an Experiment?
+
+## Deriving Probabilities
+
+There are many ways to derive the probabilities of certain outcomes. But there are two main ways to do it...
+
+1) strictly being able to resolve the number of ways something can happen. 
+
+2) being able to run multiple experiemnts and record the relative frequency of each outcome  
+
+
+
+---
+## Experiment, Defined
 
 An **experiment** is any repeatable action where the result isn’t known in advance but can be observed.
 
@@ -70,18 +94,31 @@ An **experiment** is any repeatable action where the result isn’t known in adv
 - **Hiring Process**: Interview a candidate and decide whether they’re offered the job  
 
 --- 
-## What is an Experiment?
+## Quick Activity: Possible Outcomes
 
-In an **experiment**, we usually know what the outcome could be even if we don't know what they are.
+For each of the following experiments, what are all the possible outcomes? 
+
+- **Medical Trial**
+- **Airport Security Check**
+- **Hiring Process** 
+
+*Try to be a thorough as you can. We'll come together and discuss after.*
+
+---
+
+## Possible Outcomes
+
+In a typical **experiment**, we know what the outcomes could be! 
 
 - **Medical Trial** : Improve, Stagnant, Worsen 
 - **Airport Security Check** : Screened, Not-Screened
 - **Hiring Process** : Hired, Not-Hired, Blacklisted
+
 > The possible outcomes of an experiment are its **sample space**.
 
-
 ---
-## Sample Space
+
+## Sample Space, Defined
 
 The **sample space** is the set of all possible outcomes for a given experiment. 
 
@@ -91,47 +128,52 @@ If we roll a dice: `{1, 2, 3, 4, 5, 6}`
 
 If we draw a card from a deck: `S = {A♠, 2♠, 3♠, K♠, A♥, 2♥,...}`
 
+*For straight foward examples, finding the sample space is well, straight forward.*
+
+*However, you'll see that this isn't always the case.* 
+
 ---
-## Types of Experiments
+## Types of Experiements
 
-Experiments can be grouped by the form of their outcomes:
+Experiments can be grouped by their types of outcomes:
 
-- **Binary**: Two possible outcomes  
+- **Binary:** Two possible outcomes  
   Example: `{Success, Failure}` in a medical trial
 
-- **Discrete**: Countable outcomes  
+- **Discrete:** Countable (whole number) outcomes  
   Example: `{1, 2, 3, 4, 5, 6}` from rolling a dice
 
-- **Continuous**: Any value in a range *(not something we'll focus on)*
+- **Continuous:** Any value in a range
   Example: A temperature reading like `72.5°F`
 
 The structure of the sample space affects how we study the experiment and calculate the probabilities of its outcomes.
 
----
 
-## Event Space
+--- 
 
-An **event** is a portion of the sample space we ascribe meaning to.
+## Quick Activity
 
-It represents outcomes of an experiment that satisfy a specific condition.
+For each of the following, come up with as many as you can that fit the type of experiments
 
-At least one Tails in two coin flips:
-- Sample Space: `{ (T, T), (T, H), (H, T) }`
-
-Values greater than a 3 in a dice roll:
-- Sample Space: `{4, 5, 6}`
-
-Red face cards in a card deck: 
-- Sample Space:`{J♥, Q♥, K♥, J♦, Q♦, K♦}`
+- **Binary:** Two possible outcomes  
+- **Discrete:** Countable (whole number) outcomes  
+- **Continuous:** Any value in a range
 
 ---
 
-# Counting 
+## Event Space, Defined
 
-<img src="./prob/count.jpg"  width=30%>
+An **event** is a subset (portion) of the sample space we ascribe meaning to. It represents the # of outcomes of an experiment that satisfy a specific condition.
 
-<!-- _class: lead -->
+*At least one tail* in two coin flips:
+\- Sample Space: `{ (T, T), (T, H), (H, T) }`
 
+Values *greater than a 3* in a dice roll:
+\- Sample Space: `{4, 5, 6}`
+
+*Red face cards* in a card deck: 
+\- Sample Space:`{J♥, Q♥, K♥, J♦, Q♦, K♦}`
+ 
 ---
 
 ## Equally Likely Outcomes
@@ -153,7 +195,13 @@ $$\frac{1}{6} = \frac{\text{Ways to roll a 1}}{\text{All the ways to roll.}}$$
 
 ---
 
-## Lecture Activity: Counting
+# 2) Counting 
+
+<!-- _class: lead -->
+
+---
+
+## Quick Activity: Counting
 
 Counting is one of the biggest painpoints for many undergrads! We thought we learned how to do so in elementary school but that isn't really the case.
 
@@ -193,13 +241,13 @@ For the first dice, there are **$6$** different outcomes. For the second dice, t
 
 ---
 
-# Formalizing Probability 
+# 3) Probability 
 
 <!-- _class: lead -->
 
 ---
 
-## Formal Definition of Probability
+## Probability, Defined
 
 The **probability** of an event `E` is the *long-run* proportion of times `E` occurs in
  repeated, identical trials:
@@ -215,41 +263,16 @@ $$
 
 ---
 
-## Trials Instead of Counting
+## Back to Trials
 
 If we repeat an experiment many times, the **relative frequency** of an event approaches its true probability.
 
-So instead of counting, let's simulate rolling two dice `36000` times seeing how many times we roll a 1 and a 2.
+So instead of counting, let's simulate rolling two dice `36000` times seeing how many times we roll a 1 and a 2 using python.
+
+But before that, a new library, `random`.
+
 
 --- 
-
-## Trials Instead of Counting
-
-* You won’t get *exactly* 2,000 outcomes of a 1 and 2.
-* But the proportion of outcomes gets *closer and closer* to the real value as the trials increase.
-
-
-<pre>
-num_trials = 36000
-num_outcomes = dice_outcomes(num_trials)
-print(num_outcomes / num_trials)  # ≈ .05555555555
-</pre>
-
-
-
----
-## Key Terms Recap
-
-| Term            | Meaning                                              |
-|-----------------|------------------------------------------------------|
-| **Experiment**  | A repeatable action with an uncertain outcome        |
-| **Sample Space**| The set of all possible outcomes                     |
-| **Event**       | A subset of outcomes we care about                   |
-| **Trial**       | One run of the experiment                            |
-| **Probability** | Chance of an event happening, between 0 and 1    |
-
----
-
 ## Python’s **random** Library
 
 `random.randint(a, b)`  
@@ -263,6 +286,31 @@ Example: `random.choice(["heads", "tails"])`
 `random.random()`  
 Returns a float between `0.0` and `1.0`.Can be used to simulate binary outcomes. 
 Example: `random.random() < 0.5`
+
+---
+
+## Trials Instead of Counting
+
+* You won’t get *exactly* 2,000 outcomes of a 1 and 2.
+* But the proportion of outcomes gets *closer and closer* to the real value as the trials increase.
+
+
+<pre>
+num_trials = 36000
+num_outcomes = dice_outcomes(num_trials)
+print(num_outcomes / num_trials)  # ≈ .05555555555
+</pre>
+
+---
+## Key Terms Recap
+
+| Term            | Meaning                                              |
+|-----------------|------------------------------------------------------|
+| **Experiment**  | A repeatable action with an uncertain outcome        |
+| **Sample Space**| The set of all possible outcomes                     |
+| **Event**       | A subset of outcomes we care about                   |
+| **Trial**       | One run of the experiment                            |
+| **Probability** | Chance of an event happening, between 0 and 1    |
 
 ---
 
@@ -301,81 +349,106 @@ Based on these outcomes, what are the estimated probabilities?
 
 **Mutually Exclusive:**
 When two (or more) events are mutually exclusive, this means that they can not happen at the same time. 
-- For example, rolling a value < 2 and rolling >= 2. 
+- For example, rolling dice with a value that is $< 2$ and $>= 2$. 
 - If X represents the outcome of the dice roll, $P(X < 2 \text{ and } X >=2) = 0$.
 
 
 --- 
 
-## Probability of OR
+## OR, Defined
 
-**OR**: Event A *or* Event B (or both) happen
+**OR**: Used to describe a situtation where two (or more things) could occur. 
+
+As an example, the coffee is bitter or its cold, could be written in the following ways:
+
+**Logic:**  $\text{bitter} \lor \text{cold}$, 
+
+**Probability:** $\text{bitter} \cup  \text{cold}$ 
+
+We'll go ahead and focused on the probability syntax. Take a logic course in the future if you're interested in the former! 
+
+
+--- 
+
+## OR, Defined
+
+**Probability:** $P(\text{bitter} \cup  \text{cold})$, 
+
+In English: The probability the coffee is bitter or cold.
+
+In this scenario, it could be the case that the coffee is just bitter, just cold, or even both and this would still fit the definition of or.
+
+![bg right height:300px](./prob/cold_bitter.png)
+
+
+---
+
+## OR, Defined
+
+If A and B are **not mutually exclusive**, that is they *can* co-occur, then we calculate it as follows. We'll assume A and B are the same bitter and cold as before. 
+
+$$P(A \text{ or } B) = P(A \cup  B) = P(A) + P(B) - P(A \textit{ and } B)$$
+
+
+![center height:300px](./prob/cold_bitter.png)
+
+
+
+---
+
+## Quick Activity, OR
+
+
+$$P(\text{bitter}) + P(\text{cold}) - P(\text{bitter} \textit{ and }  \text{cold})$$
+
+Take a look at the formula to derive $P(A \cup  B)$. 
+
+Why subract by $P(\text{bitter} \textit{ and }  \text{cold})$?
+
+![bg right:37% height:300px](./prob/cold_bitter.png)
+
+**Talk with those at your table!** 
+
+*We'll discuss after.*
+
+---
+## Or, Defined
+
+Why do we subtract by $P(A \text{ and }B)?$
+
+If two events are not mutually exclusive, then they could co-occur.
+
+So, when adding together P(A) and P(B), we could be overcounting the overlap!
+
+If they're mutually exclusive, $P(A \text{ and }B) = 0$!
+
+![bg right fit](./prob/venn-diagram.png)
+
+---
+
+## OR, Defined
 
 If A and B are **mutually exclusive**:
 
 $$P(A \text{ or } B) = P(A \cup B)= P(A) + P(B)$$
 
-You can see `or` written written in either of those two ways above, but the syntax for us doesn't matter.
+And now we can see why; no overlap. 
+
+![bg right fit](./prob/mutual_excl.png)
+
 
 ---
 
-## Probability of Or
+## And, Defined
 
-If A and B are **not mutually exclusive**, that is they *can* co-occur:
-
-$$P(A \text{ or } B) = P(A \cup B)= P(A) + P(B) - P(A \text{ and }B)$$
-
-<div style="display: flex; justify-content: center;">
-<img src="./prob/venn-diagram.png" width=40%/>
-</div>
-
----
-
-## Probability of Or
-Why do we subtract by $P(A \text{ and }B)?$
-<div style="display: flex; align-items: center; gap: 110px;">
-  <div>
-    <ul>
-      <li>If two events are not mutually exclusive, then they could co-occur.</li>
-      <li>So, when adding together P(A) and P(B), we could be overcoutning the overlap!</li>
-      <li>If they're mutually exclusive, P(A and B) is 0!</li>
-    </ul>
-  </div>
-  <div>
-    <img src="./prob/venn-diagram.png" width=90%/>
-  </div>
-</div>
-
----
-
-## Lecture Activity
-
-Suppose we survey 100 students:
-
-- 60 take **Math** → `P(Math) = 0.60`  
-- 40 take **Science** → `P(Science) = 0.40`  
-<!-- - 20 take **both** → `P(Math and Science) = 0.20` -->
-
-Then:
-<pre>
-P(Math or Science) = P(Math) + P(Science) - P(Math and Science)
-                   = 0.60 + 0.40
-                   = 1
-</pre>
-
-**Is there anything wrong with this?**
-
----
-
-## Probability of And
-
-You might see this written in different forms, but they all express the same idea.
+Here are all the ways you might see "and" written as!
 
 $$P(A \text{ and } B) = P(A = a, B = b) = P(A \cap B)$$
 
 **AND**: 
 - Event A *and* Event B both happen 
 - Event a *and* b happen from the sample space of A and B.
+- A *intersection* B ($\cap$)
 
 There are many ways to calculate this probability directly. Assuming that each outcome is equally likely, we can count those outcomes. 
 
@@ -397,37 +470,77 @@ P(Head, Head, Tail) = ...
 
 ---
 
+## Quick Activity, Or
+
+You're assigned with trying to figure out some statistics for ESAP:
+
+- 60 students take **Computer Science**
+- 40 take **Artificial Intelligence**
+- 150 students total. 
+
+And you want to find the probability a student is in the Computer Science or in the AI course.
+
+**Do you have enough information?**
+
+---
+
+## Quick Activity, Or
+
+Congrats, you're now an offical Penn students and you're taking CIS1100 with Harry or I. We ask you to compute some statistics.
+
+- 150 students take **CIS 1100**
+- 100 take **COGS 1001**
+- 2300 students total in freshman class.
+
+And you want to find the probability a freshman is enrolled in **CIS 1100** or in **COGS 1001**.
+
+**Do you have enough information?**
+
+---
+
 ## Conditional Probability
 
 **$P(A \mid B)$** : The probability of A given B. The probability that A happens **assuming** B has already happened.
-
 $$P(A \mid B) = \frac{P(A \text{ and } B)}{P(B)}$$
-
 
 Example:
 What’s the probability a card is a Queen given it’s a face card?
 
-
-$$P(Queen | Face) = \frac{P(Queen \text{ and } Face)}{Face} = \frac{4}{12}$$ 
+$$P(Queen | Face) = \frac{P(Queen \text{ and } Face)}{P(Face)} = \frac{4}{12}$$ 
 
 *There is an implicit / 52 under each value, but they cancel!*
+
+---
+## Quick Activity
+
+$$P(A \mid B) = \frac{P(A \text{ and } B)}{P(B)}$$
+
+- 150 students take **CIS 1100**
+- 100 take **COGS 1001**
+- 30 students take **CIS 1100 and COGS1001**
+- 2300 students total in freshman class.
+
+What is the probability is enrolled in **COGS 1001** given that they are enrolled in **CIS 1100**?
+
 
 ---
 
 ## Chain Rule
 
 Sometimes we can’t calculate $P(A \text{ and } B)$ directly.  
+
 We use the **chain rule**, which rewrites it using conditional probability:
 
 $$
-P(A \text{ and } B) = P(A) \cdot P(B \mid A)
+P(A \text{ and } B) = P(B \mid A) \cdot P(A)
 $$
 
 $$
-P(Queen \text{ and } Face) = P(Queen) \cdot P(Face \mid Queen)
+P(Queen \text{ and } Diamond) = P(Queen) \cdot P(Diamond \mid Queen)
 $$
-$$ = \frac{4}{52} \cdot \frac{4}{4} $$
 
+$$ = \frac{4}{52} \cdot \frac{1}{4} $$
+$$ = \frac{1}{52}$$
 ---
 
 ## Expectation
@@ -457,6 +570,16 @@ $$
 E[X] = \sum_{x} x \cdot P(X = x)
 $$
 
+In english: The sum over all outcomes, `x` multiplied by the probability of outcome `x`.
+
+---
+## Expected Value (Formal Definition)
+
+If $X$ is the outcome of an experiment, the **expected value** is the average outcome you'd expect over many repetitions:
+
+$$
+E[X] = \sum_{x} x \cdot P(X = x)
+$$
 Example:  
 Let the possible outcomes be $[1, 2, 3]$ with probabilities $[0.2, 0.3, 0.5]$
 
@@ -488,13 +611,7 @@ $X$ models the outcome of a binary scenario. Its expectation equals the **probab
 
 ---
 
-## Revist: Chain Rule
-
-The chain rule helps compute the probability that two events both happen:
-
-$$
-P(A \text{ and } B) = P(A) \cdot P(B \mid A)
-$$
+## Independance, Defined
 
 If **A and B are independent**, then:
 
@@ -502,7 +619,13 @@ $$
 P(B \mid A) = P(B)
 $$
 
-So:
+In english: The probability B happens doesn't change if A has happened. 
+
+The chain rule helps compute the probability that two events both happen:
+
+$$
+P(A \text{ and } B) = P(A) \cdot P(B \mid A)
+$$
 
 $$
 P(A \text{ and } B) = P(A) \cdot P(B)
